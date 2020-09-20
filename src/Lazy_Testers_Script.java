@@ -22,7 +22,7 @@ public class Lazy_Testers_Script {
 
     public static void createfile(){
         Scanner original_file_name_input = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter the filename from the java class (ex: LAB04P3Wrapper)");
+        System.out.println("Enter the filename from the java class you want to test (ex: LAB04P3Wrapper)");
 
         String filename = original_file_name_input.nextLine();  // Read user input
         System.out.println("[+] Filename is: " + filename.replaceAll(" ",""));  // Output user input
@@ -69,8 +69,7 @@ public class Lazy_Testers_Script {
         //Lets write what the class structure is!
 
         //Adding testcases
-        Write2SpecificLine(4, "    @Test\n" +
-                "   public void testcase1(){\n" +" \n"  + "    \n" + "    \n" + "    \n" + "    \n" + "    \n" + "    \n" + " \n" + "    \n" +"       //Test code here\n" + "    \n" + "    \n" + "    \n" + "    \n" + "    \n" + "   }");
+        Write2SpecificLine(4, "    @Test\n" + "   public void testcase1(){\n" +" \n"  + "    \n" + "    \n" + "    \n" + "    \n" + "    \n" + "    \n" + " \n" + "    \n" +"       //Test code here\n" + "    \n" + "    \n" + "    \n" + "    \n" + "    \n" + "   }");
         System.out.println("[+] Successfully Added TestCase\n");
 
         //Reads Structure
@@ -87,13 +86,28 @@ public class Lazy_Testers_Script {
         String list_txt = list_scanner.readLine();
 
         if (list_txt.toLowerCase().equals("y") || list_txt.toLowerCase().equals("yes")){
-                System.out.println("Add the elements to the list (ex: Ken,Jil,Ron)");
+            System.out.println("Want type of object you want to add to the list? (ex: Int,String,Double)");
+            BufferedReader type_scanner = new BufferedReader(new InputStreamReader(System.in));
+            String type_of_object = type_scanner.readLine();
+
+            if (type_of_object.replaceAll(" ","").toLowerCase().equals("string")){
+                System.out.println("Add the elements to the list (ex: Ken,Jil,Ron)\nNOTE: DIVIDED BY COMMAS");
                 BufferedReader elements_scanner = new BufferedReader(new InputStreamReader(System.in));
                 String elements_txt = elements_scanner.readLine();
                 String[] elements = elements_txt.split(",");
 
-            for (int i = 0; i < elements.length; i++) {
-                Write2SpecificLine(9+i, "       list.add(" + '"'  + elements[i] + '"' +");\n");
+                for (int i = 0; i < elements.length; i++) {
+                    Write2SpecificLine(9+i, "       list.add(" + '"'  + elements[i] + '"' +");\n");
+                }
+            }else {
+                System.out.println("Add the elements to the list (ex: 1,2,3 or whatever you choose to add)\nNOTE: DIVIDED BY COMMAS ");
+                BufferedReader elements_scanner = new BufferedReader(new InputStreamReader(System.in));
+                String elements_txt = elements_scanner.readLine();
+                String[] elements = elements_txt.split(",");
+
+                for (int i = 0; i < elements.length; i++) {
+                    Write2SpecificLine(9 + i, "       list.add(" + elements[i] + ");\n");
+                }
             }
 
             System.out.println("[+] List Created\n");
