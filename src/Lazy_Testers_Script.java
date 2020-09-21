@@ -94,7 +94,7 @@ public class Lazy_Testers_Script {
                 System.out.println("Add the elements to the list (ex: Ken,Jil,Ron)\nNOTE: DIVIDED BY COMMAS");
                 BufferedReader elements_scanner = new BufferedReader(new InputStreamReader(System.in));
                 String elements_txt = elements_scanner.readLine();
-                String[] elements = elements_txt.split(",");
+                String[] elements = elements_txt.replaceAll(" ","").split(",");
 
                 for (int i = 0; i < elements.length; i++) {
                     Write2SpecificLine(9+i, "       list.add(" + '"'  + elements[i] + '"' +");\n");
